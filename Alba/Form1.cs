@@ -83,8 +83,6 @@ namespace Alba
         public void triphard()
         {
             twitch.Start();
-
-         
         }
 
 

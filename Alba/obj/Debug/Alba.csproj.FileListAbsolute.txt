@@ -8,3 +8,14 @@ C:\Users\Niels\documents\visual studio 2015\Projects\Alba\Alba\obj\Debug\Alba.cs
 C:\Users\Niels\documents\visual studio 2015\Projects\Alba\Alba\obj\Debug\Alba.exe
 C:\Users\Niels\documents\visual studio 2015\Projects\Alba\Alba\obj\Debug\Alba.pdb
 C:\Users\Niels\documents\visual studio 2015\Projects\Alba\Alba\obj\Debug\Alba.FirstScene.resources
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\bin\Debug\Alba.exe.config
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.exe
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.pdb
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\bin\Debug\Alba.exe
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\bin\Debug\Alba.pdb
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.csprojResolveAssemblyReference.cache
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.FirstScene.resources
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.Form1.resources
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.Properties.Resources.resources
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.csproj.GenerateResource.Cache
+C:\Users\Niels\Documents\GitHub\ALBA\Alba\obj\Debug\Alba.outside1.resources

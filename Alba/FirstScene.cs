@@ -16,21 +16,25 @@ namespace Alba
         bool left;
         bool up;
         bool down;
+      
 
         public FirstScene()
         {
+           
             InitializeComponent();
         }
 
         private void FirstScene_Load(object sender, EventArgs e)
         {
-
+            mirror.Visible = false;
         }
 
         private void Movement_Tick(object sender, EventArgs e)
         {
 
             //COLLISONS
+
+            //WALLS
 
             //RIGHT
 
@@ -62,27 +66,56 @@ namespace Alba
                 down = false;
             }
 
-
-
+            //BLOCKS
 
             if (right == true)
             {
-                player.Left += 5;
+                player.Left += 3;
             }
 
             if (left == true)
             {
-                player.Left -= 5;
+                player.Left -= 3;
             }
 
             if (up == true)
             {
-                player.Top -= 5;
+                player.Top -= 3;
             }
 
             if ( down == true)
             {
-                player.Top += 5;
+                player.Top += 3;
+            }
+
+           
+
+            if (player.Bounds.IntersectsWith(closet.Bounds))
+            {
+                lblEvent.Text = "Q: Check Mirror. E: Change Clothes";
+                lblA1.Text = "Q";
+                lblA2.Text = "E";
+            }
+            else
+            {
+                mirror.Visible = false;
+                lblEvent.Text = "...";
+                lblA1.Text = "...";
+                lblA2.Text = "...";
+            }
+
+            if (player.Bounds.IntersectsWith(door.Bounds))
+            {
+                lblEvent.Text = "you wanna go outside?";
+                lblA1.Text = "yes";
+                lblA2.Text = "no";
+
+            }
+            else
+            {
+                lblEvent.Text = "...";
+                lblA1.Text = "...";
+                lblA2.Text = "...";
             }
         }
 
@@ -107,6 +140,30 @@ namespace Alba
             {
                 down = true;
             }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+
+            if (e.KeyCode == Keys.Q)
+            {
+                A1Clicked();
+            }
+
+            if (e.KeyCode == Keys.E)
+            {
+                A2Clicked();
+            }
+        }
+
+
+        private void stopmovement()
+        {
+            left = false;
+            right = false;
+            up = false;
+            down = false;
         }
 
         private void FirstScene_KeyUp(object sender, KeyEventArgs e)
@@ -130,6 +187,8 @@ namespace Alba
             {
                 down = false;
             }
+
+
         }
 
     
@@ -153,6 +212,44 @@ namespace Alba
             base.OnLoad(e);
             this.Location = Owner.Location;
             this.Size = Owner.Size;
+        }
+
+        private void lblA1_Click(object sender, EventArgs e)
+        {
+            A1Clicked();
+        }
+
+        private void lblA2_Click(object sender, EventArgs e)
+        {
+            A2Clicked();
+        }
+
+        private void A1Clicked()
+        {
+            if(lblEvent.Text == "you wanna go outside?")
+            {
+                Form outside = new outside1();
+                this.Hide();
+                outside.Show(this);
+            }
+
+            if (lblEvent.Text == "Q: Check Mirror. E: Change Clothes")
+            {
+                lblEvent.Text = "jezus christ! ur hard to look at";
+                mirror.Visible = true;
+            }
+        }
+
+        private void A2Clicked()
+        {
+
+            if (lblEvent.Text == "you wanna go outside?")
+            {
+                lblEvent.Text = "...";
+                lblA1.Text = "...";
+                lblA2.Text = "...";
+            }
+            
         }
     }
 }
