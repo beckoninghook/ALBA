@@ -47,13 +47,6 @@ namespace Alba
             hb.Show(this);
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            this.Location = Owner.Location;
-            this.Size = Owner.Size;
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

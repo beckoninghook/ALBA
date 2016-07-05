@@ -88,35 +88,10 @@ namespace Alba
                 player.Top += 3;
             }
 
-           
 
-            if (player.Bounds.IntersectsWith(closet.Bounds))
-            {
-                lblEvent.Text = "Q: Check Mirror. E: Change Clothes";
-                lblA1.Text = "Q";
-                lblA2.Text = "E";
-            }
-            else
-            {
-                mirror.Visible = false;
-                lblEvent.Text = "...";
-                lblA1.Text = "...";
-                lblA2.Text = "...";
-            }
+            //mcloset();
 
-            if (player.Bounds.IntersectsWith(door.Bounds))
-            {
-                lblEvent.Text = "you wanna go outside?";
-                lblA1.Text = "yes";
-                lblA2.Text = "no";
-
-            }
-            else
-            {
-                lblEvent.Text = "...";
-                lblA1.Text = "...";
-                lblA2.Text = "...";
-            }
+            mDoor();
         }
 
         private void FirstScene_KeyDown(object sender, KeyEventArgs e)
@@ -222,6 +197,41 @@ namespace Alba
         private void lblA2_Click(object sender, EventArgs e)
         {
             A2Clicked();
+        }
+
+        private void mcloset()
+        {
+            if (player.Bounds.IntersectsWith(closet.Bounds))
+            {
+                lblEvent.Text = "Q: Check Mirror. E: Change Clothes";
+                lblA1.Text = "Q";
+                lblA2.Text = "E";
+            }
+            else
+            {
+                mirror.Visible = false;
+                lblEvent.Text = "...";
+                lblA1.Text = "...";
+                lblA2.Text = "...";
+            }
+        }
+
+        private void mDoor()
+        {
+
+            if (player.Bounds.IntersectsWith(door.Bounds))
+            {
+                lblEvent.Text = "you wanna go outside?";
+                lblA1.Text = "yes";
+                lblA2.Text = "no";
+
+            }
+            else
+            {
+                lblEvent.Text = "...";
+                lblA1.Text = "...";
+                lblA2.Text = "...";
+            }
         }
 
         private void A1Clicked()

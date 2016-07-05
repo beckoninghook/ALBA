@@ -29,29 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.player = new System.Windows.Forms.PictureBox();
             this.Movement = new System.Windows.Forms.Timer(this.components);
             this.lblA2 = new System.Windows.Forms.Label();
             this.lblA1 = new System.Windows.Forms.Label();
             this.lblEvent = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.screen = new System.Windows.Forms.Panel();
+            this.wallTop = new System.Windows.Forms.PictureBox();
+            this.wallBottom = new System.Windows.Forms.PictureBox();
+            this.wallRight = new System.Windows.Forms.PictureBox();
+            this.wallLeft = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            this.screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wallTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallBottom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallLeft)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // player
             // 
-            this.pictureBox1.Image = global::Alba.Properties.Resources.player;
-            this.pictureBox1.Location = new System.Drawing.Point(118, 124);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 32);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.player.Image = global::Alba.Properties.Resources.player;
+            this.player.Location = new System.Drawing.Point(118, 124);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(16, 32);
+            this.player.TabIndex = 0;
+            this.player.TabStop = false;
             // 
             // Movement
             // 
             this.Movement.Enabled = true;
             this.Movement.Interval = 1;
+            this.Movement.Tick += new System.EventHandler(this.Movement_Tick);
             // 
             // lblA2
             // 
@@ -88,14 +97,49 @@
             this.lblEvent.TabIndex = 5;
             this.lblEvent.Text = "...";
             // 
-            // panel1
+            // screen
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-3, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 173);
-            this.panel1.TabIndex = 8;
+            this.screen.BackColor = System.Drawing.Color.Transparent;
+            this.screen.Controls.Add(this.wallRight);
+            this.screen.Controls.Add(this.player);
+            this.screen.Controls.Add(this.wallBottom);
+            this.screen.Location = new System.Drawing.Point(-3, 35);
+            this.screen.Name = "screen";
+            this.screen.Size = new System.Drawing.Size(248, 173);
+            this.screen.TabIndex = 8;
+            // 
+            // wallTop
+            // 
+            this.wallTop.BackColor = System.Drawing.Color.Transparent;
+            this.wallTop.Location = new System.Drawing.Point(-3, 12);
+            this.wallTop.Name = "wallTop";
+            this.wallTop.Size = new System.Drawing.Size(255, 37);
+            this.wallTop.TabIndex = 4;
+            this.wallTop.TabStop = false;
+            // 
+            // wallBottom
+            // 
+            this.wallBottom.Location = new System.Drawing.Point(-7, 168);
+            this.wallBottom.Name = "wallBottom";
+            this.wallBottom.Size = new System.Drawing.Size(255, 12);
+            this.wallBottom.TabIndex = 9;
+            this.wallBottom.TabStop = false;
+            // 
+            // wallRight
+            // 
+            this.wallRight.Location = new System.Drawing.Point(238, -40);
+            this.wallRight.Name = "wallRight";
+            this.wallRight.Size = new System.Drawing.Size(18, 218);
+            this.wallRight.TabIndex = 10;
+            this.wallRight.TabStop = false;
+            // 
+            // wallLeft
+            // 
+            this.wallLeft.Location = new System.Drawing.Point(-13, 0);
+            this.wallLeft.Name = "wallLeft";
+            this.wallLeft.Size = new System.Drawing.Size(18, 211);
+            this.wallLeft.TabIndex = 11;
+            this.wallLeft.TabStop = false;
             // 
             // outside1
             // 
@@ -104,18 +148,26 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Alba.Properties.Resources.forest;
             this.ClientSize = new System.Drawing.Size(240, 240);
+            this.Controls.Add(this.wallLeft);
+            this.Controls.Add(this.wallTop);
             this.Controls.Add(this.lblA2);
             this.Controls.Add(this.lblA1);
             this.Controls.Add(this.lblEvent);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.screen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "outside1";
             this.Text = "outside1";
             this.Load += new System.EventHandler(this.outside1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.outside1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.outside1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            this.screen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wallTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallBottom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallLeft)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,11 +175,15 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer Movement;
         private System.Windows.Forms.Label lblA2;
         private System.Windows.Forms.Label lblA1;
         private System.Windows.Forms.Label lblEvent;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel screen;
+        private System.Windows.Forms.PictureBox wallTop;
+        private System.Windows.Forms.PictureBox wallBottom;
+        private System.Windows.Forms.PictureBox wallRight;
+        private System.Windows.Forms.PictureBox wallLeft;
     }
 }

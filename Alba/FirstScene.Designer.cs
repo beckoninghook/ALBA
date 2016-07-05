@@ -31,27 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.player = new System.Windows.Forms.PictureBox();
             this.screen = new System.Windows.Forms.Panel();
+            this.closet = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.wallBottom = new System.Windows.Forms.PictureBox();
             this.wallTop = new System.Windows.Forms.PictureBox();
             this.wallRight = new System.Windows.Forms.PictureBox();
             this.wallLeft = new System.Windows.Forms.PictureBox();
             this.door = new System.Windows.Forms.PictureBox();
+            this.mirror = new System.Windows.Forms.PictureBox();
             this.Movement = new System.Windows.Forms.Timer(this.components);
             this.lblEvent = new System.Windows.Forms.Label();
             this.lblA1 = new System.Windows.Forms.Label();
             this.lblA2 = new System.Windows.Forms.Label();
-            this.closet = new System.Windows.Forms.PictureBox();
-            this.mirror = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.door)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mirror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +67,6 @@
             // screen
             // 
             this.screen.BackColor = System.Drawing.Color.Transparent;
-            this.screen.Controls.Add(this.closet);
             this.screen.Controls.Add(this.pictureBox1);
             this.screen.Controls.Add(this.wallBottom);
             this.screen.Controls.Add(this.wallTop);
@@ -76,10 +75,19 @@
             this.screen.Controls.Add(this.wallLeft);
             this.screen.Controls.Add(this.door);
             this.screen.Controls.Add(this.mirror);
+            this.screen.Controls.Add(this.closet);
             this.screen.Location = new System.Drawing.Point(-14, -5);
             this.screen.Name = "screen";
             this.screen.Size = new System.Drawing.Size(285, 211);
             this.screen.TabIndex = 1;
+            // 
+            // closet
+            // 
+            this.closet.Location = new System.Drawing.Point(183, 17);
+            this.closet.Name = "closet";
+            this.closet.Size = new System.Drawing.Size(35, 49);
+            this.closet.TabIndex = 7;
+            this.closet.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -130,6 +138,16 @@
             this.door.TabIndex = 6;
             this.door.TabStop = false;
             // 
+            // mirror
+            // 
+            this.mirror.Image = global::Alba.Properties.Resources.mirror;
+            this.mirror.Location = new System.Drawing.Point(92, 74);
+            this.mirror.Name = "mirror";
+            this.mirror.Size = new System.Drawing.Size(82, 82);
+            this.mirror.TabIndex = 8;
+            this.mirror.TabStop = false;
+            this.mirror.Visible = false;
+            // 
             // Movement
             // 
             this.Movement.Enabled = true;
@@ -173,23 +191,6 @@
             this.lblA2.Text = "...";
             this.lblA2.Click += new System.EventHandler(this.lblA2_Click);
             // 
-            // closet
-            // 
-            this.closet.Location = new System.Drawing.Point(183, 17);
-            this.closet.Name = "closet";
-            this.closet.Size = new System.Drawing.Size(35, 49);
-            this.closet.TabIndex = 7;
-            this.closet.TabStop = false;
-            // 
-            // mirror
-            // 
-            this.mirror.Image = global::Alba.Properties.Resources.mirror;
-            this.mirror.Location = new System.Drawing.Point(92, 71);
-            this.mirror.Name = "mirror";
-            this.mirror.Size = new System.Drawing.Size(82, 82);
-            this.mirror.TabIndex = 8;
-            this.mirror.TabStop = false;
-            // 
             // FirstScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,13 +213,13 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FirstScene_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.screen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.closet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.door)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mirror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
